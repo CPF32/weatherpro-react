@@ -84,14 +84,18 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-            >
+            <div className="button-center">
+              <Button
+                variant="primary"
+                type="submit"
+              >
               Sign Up
-            </Button>
-            <h5></h5>
-            <a className="anchor" href= "#sign-in">Already have an account? Login Here!</a>
+              </Button>
+            </div>
+            <div className="bottom">
+              <h5></h5>
+              <a className="anchor" href= "#sign-in">Already have an account? Login Here!</a>
+            </div>
           </Form>
         </div>
       </div>

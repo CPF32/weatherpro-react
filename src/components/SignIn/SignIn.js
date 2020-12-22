@@ -30,7 +30,6 @@ class SignIn extends Component {
       .then(res => setUser(res.data.user))
       .then(() => msgAlert({
         heading: 'Sign In Success',
-        message: messages.signInSuccess,
         variant: 'success'
       }))
       .then(() => history.push('/'))
@@ -72,12 +71,14 @@ class SignIn extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-            >
+            <div className="button-center">
+              <Button
+                variant="primary"
+                type="submit"
+              >
               Login
-            </Button>
+              </Button>
+            </div>
             <div className="bottom">
               <h5></h5>
               <a className="anchor" href= "#sign-up">Dont have an account? Sign up here!</a>

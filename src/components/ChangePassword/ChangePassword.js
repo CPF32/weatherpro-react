@@ -29,7 +29,6 @@ class ChangePassword extends Component {
     changePassword(this.state, user)
       .then(() => msgAlert({
         heading: 'Change Password Success',
-        message: messages.changePasswordSuccess,
         variant: 'success'
       }))
       .then(() => history.push('/'))
@@ -73,12 +72,18 @@ class ChangePassword extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
-            <Button
-              variant="primary"
-              type="submit"
-            >
-              Submit
-            </Button>
+            <div className="button-center">
+              <Button
+                variant="primary"
+                type="submit"
+              >
+                Save Changes
+              </Button>
+            </div>
+            <div className="bottom">
+              <h5></h5>
+              <a className="anchor" href= "#home">Nevermind. Return to home! </a>
+            </div>
           </Form>
         </div>
       </div>
