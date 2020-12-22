@@ -24,7 +24,7 @@ export const updateCity = (city, user, id) => {
     method: 'PATCH',
     url: apiUrl + '/city-builder/' + id,
     headers: {
-      Authorization: `Token token=${user.token}`
+      Authorization: `Token ${user.token}`
     },
     data: city
   })
