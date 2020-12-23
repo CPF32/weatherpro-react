@@ -15,7 +15,7 @@ const Header = ({ user }) => (
     <Navbar.Brand>
       WeatherPro
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ display: user ? 'initial' : 'none' }}/>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" style={{ display: user ? 'inherit' : 'none' }}/>
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
         { user && <span className="navbar-text mr-2"></span>}
