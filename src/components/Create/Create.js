@@ -30,6 +30,7 @@ class CreateCity extends Component {
 
     // Pass user and data to createUpload
     createCity(this.state.form, user)
+      .then(() => this.setState({ form: { name: '' } }))
       .then((response) => {
         return msgAlert({
           heading: 'Successfully Added: ' + this.state.form.name,
@@ -52,6 +53,7 @@ class CreateCity extends Component {
     return (
       <form className="searchBox" onSubmit={this.onCreateCity}>
         <input
+          autoComplete="off"
           className="searchInput"
           type="text"
           name="name"
