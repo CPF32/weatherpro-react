@@ -32,7 +32,7 @@ class SignIn extends Component {
         heading: 'Sign In Success',
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/city-builder'))
       .catch(error => {
         this.setState({ email: '', password: '' })
         msgAlert({
@@ -50,7 +50,7 @@ class SignIn extends Component {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Account Login</h3>
-          <Form onSubmit={this.onSignIn}>
+          <Form className="authform" onSubmit={this.onSignIn}>
             <Form.Group controlId="email">
               <Form.Control
                 required
@@ -79,8 +79,8 @@ class SignIn extends Component {
               Login
               </Button>
             </div>
+            <h5></h5>
             <div className="bottom">
-              <h5></h5>
               <a className="anchor" href= "#sign-up">Dont have an account? Sign up here!</a>
             </div>
           </Form>

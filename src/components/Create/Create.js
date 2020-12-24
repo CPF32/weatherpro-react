@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import Form from 'react-bootstrap/Form'
 import { createCity } from '../../api/city'
-import Button from 'react-bootstrap/Button'
 
 class CreateCity extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      name: '',
-      favorite: false
+      form: {
+        name: '',
+        favorite: false
+      }
     }
   }
 
@@ -18,35 +18,26 @@ class CreateCity extends Component {
     event.persist()
     const updatedField = { [event.target.name]: event.target.value }
 
-    const newCity = Object.assign(this.state.city, updatedField)
+    const newCity = Object.assign(this.state.form, updatedField)
 
     this.setState({ city: newCity })
   }
 
   onCreateCity = (event) => {
     event.preventDefault()
-    // Create and empty formdata object
-    const data = new FormData()
-    // taking the data from the component state
-    // and append it to the data formdata object
-    data.append('name', this.state.form.name)
-    data.append('favorite', this.state.form.favorite)
-    // getting user from the props
+
     const { msgAlert, history, user } = this.props
 
     // Pass user and data to createUpload
-    createCity(data, user)
+    createCity(this.state.form, user)
       .then((response) => {
         return msgAlert({
-          heading: 'Successfully Posted',
-          message: 'Uploaded File:' + ' ' + response.data.upload.name,
+          heading: 'Successfully Added: ' + this.state.form.name,
           variant: 'success'
         })
       })
-      // "history" = where the user has been
-      // history.push = Go to 'here'
-      // .then(() => history.push('/'))
-      .then(() => history.push('/'))
+
+      .then(() => history.push('/city-builder'))
       .catch(error => {
         this.setState({ name: '', favorite: false })
         msgAlert({
@@ -59,32 +50,19 @@ class CreateCity extends Component {
 
   render () {
     return (
-      <div className="row">
-        <h1>WeatherPro LOGO HERE</h1>
-        <div className="city-search">
-          <Form onSubmit={this.onCreateUpload}>
-            <input className="form-control"
-              placeholder="File Name"
-              value={this.state.form.name}
-              name="name"
-              onChange={this.handleInputChange}
-            />
-            <input className="form-control"
-              placeholder="File Tag"
-              value={this.state.form.tag}
-              name="tag"
-              onChange={this.handleInputChange}
-            />
-            <br/>
-            <Form.File id="upload-file-input" name="upload" onChange={this.handleInputChange}/>
-            <br/>
-            <Button type="submit">Submit</Button>
-          </Form>
-        </div>
-        <div className="city-area">
-
-        </div>
-      </div>
+      <form className="searchBox" onSubmit={this.onCreateCity}>
+        <input
+          className="searchInput"
+          type="text"
+          name="name"
+          placeholder="Search for a city"
+          value={this.state.form.name}
+          onChange={this.handleInputChange}
+        />
+        <button className="searchButton" type="submit">
+          <i className="material-icons"></i>
+        </button>
+      </form>
     )
   }
 }

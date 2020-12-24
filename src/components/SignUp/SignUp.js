@@ -53,7 +53,7 @@ class SignUp extends Component {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Create a New Account</h3>
-          <Form onSubmit={this.onSignUp}>
+          <Form className="authform" onSubmit={this.onSignUp}>
             <Form.Group controlId="email">
               <Form.Control
                 required
@@ -92,8 +92,8 @@ class SignUp extends Component {
               Sign Up
               </Button>
             </div>
+            <h5></h5>
             <div className="bottom">
-              <h5></h5>
               <a className="anchor" href= "#sign-in">Already have an account? Login Here!</a>
             </div>
           </Form>
