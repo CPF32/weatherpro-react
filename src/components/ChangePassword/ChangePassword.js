@@ -49,7 +49,7 @@ class ChangePassword extends Component {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <h3>Change Password</h3>
-          <Form onSubmit={this.onChangePassword}>
+          <Form className="authform" onSubmit={this.onChangePassword}>
             <Form.Group controlId="oldPassword">
               <Form.Label>Old password</Form.Label>
               <Form.Control
@@ -82,7 +82,7 @@ class ChangePassword extends Component {
             </div>
             <div className="bottom">
               <h5></h5>
-              <a className="anchor" href= "#home">Nevermind. Return to home! </a>
+              <a className="anchor" href= "#/city-builder">Nevermind. Return to home! </a>
             </div>
           </Form>
         </div>

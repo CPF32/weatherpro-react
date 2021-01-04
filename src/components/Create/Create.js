@@ -30,13 +30,13 @@ class CreateCity extends Component {
 
     // Pass user and data to createUpload
     createCity(this.state.form, user)
-      .then(() => this.setState({ form: { name: '' } }))
       .then((response) => {
         return msgAlert({
           heading: 'Successfully Added: ' + this.state.form.name,
           variant: 'success'
         })
       })
+      .then(() => this.setState({ form: { name: '', favorite: false } }))
 
       .then(() => history.push('/city-builder'))
       .catch(error => {
@@ -62,7 +62,7 @@ class CreateCity extends Component {
           onChange={this.handleInputChange}
         />
         <button className="searchButton" type="submit">
-          <i className="material-icons"></i>
+          <i></i>
         </button>
       </form>
     )
