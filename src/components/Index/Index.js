@@ -40,7 +40,7 @@ class IndexCity extends Component {
       return ('')
     } else {
       return (
-        <CardColumns className="cards">
+        <CardColumns className="custom-scrollbar cards">
           {this.state.cities.map(city => (
             <Fragment key={city._id}>
               <Card>
