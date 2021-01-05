@@ -40,32 +40,30 @@ class IndexCity extends Component {
       return ('')
     } else {
       return (
-        <div className="city-cards">
+        <CardColumns className="cards">
           {this.state.cities.map(city => (
             <Fragment key={city._id}>
-              <CardColumns>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>{city.name}</Card.Title>
-                    <Card.Text>
-                      Temperature: <br/>
-                      Description:
-                    </Card.Text>
-                    <Dropdown>
-                      <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        Dropdown Button
-                      </Dropdown.Toggle>
-                      <Dropdown.Menu>
-                        <Dropdown.Item href="">Favorite</Dropdown.Item>
-                        <Dropdown.Item href="">Delete</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Card.Body>
-                </Card>
-              </CardColumns>
+              <Card>
+                <Card.Body>
+                  <Card.Title>{city.name}</Card.Title>
+                  <Card.Text>
+                    Temperature: <br/>
+                    Description:
+                  </Card.Text>
+                  <Dropdown className="dropdown">
+                    <Dropdown.Toggle variant="btn btn-light" id="dropdown-basic">
+                      Options
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="">Favorite</Dropdown.Item>
+                      <Dropdown.Item href="">Delete</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Card.Body>
+              </Card>
             </Fragment>
           ))}
-        </div>
+        </CardColumns>
       )
     }
   }

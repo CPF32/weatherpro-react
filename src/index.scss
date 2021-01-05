@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 html {
-  height: 100vh;
+  height: 100%;
 }
 
 #root {
@@ -155,9 +155,27 @@ h3 {
   .searchBox:hover > .searchInput {
     padding: 10px 18px;
     width: 160px;
-}
+  }
 }
 
-.city-cards {
-  display: inline-grid;
+.cards {
+  bottom: 0%;
+  max-height: 30%;
+  overflow-x: scroll;
+  position: fixed;
+  width: 50%;
+}
+
+.card-body {
+  min-height: 500px;
+}
+
+.card {
+  margin: 5px;
+  max-width: 250px;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: center;
 }
