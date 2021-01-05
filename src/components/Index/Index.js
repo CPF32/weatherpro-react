@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import Card from 'react-bootstrap/Card'
+import CardColumns from 'react-bootstrap/CardColumns'
+import Dropdown from 'react-bootstrap/Dropdown'
 import { withRouter } from 'react-router-dom'
 import { indexCity } from '../../api/city'
 
@@ -6,7 +9,7 @@ class IndexCity extends Component {
   constructor () {
     super()
     this.state = {
-      citys: null
+      cities: null
     }
   }
 
@@ -19,7 +22,7 @@ class IndexCity extends Component {
 
     indexCity(user)
       .then(res => {
-        this.setState({ citys: res.data.citys })
+        this.setState({ cities: res.data.cities })
       })
       .catch(err => {
         msgAlert({
@@ -31,12 +34,40 @@ class IndexCity extends Component {
   }
 
   render () {
-    return (
-      <div className="city-carousel">
-        <h2>CAROUSEL</h2>
-        <p></p>
-      </div>
-    )
+    if (!this.state.cities) {
+      return ('')
+    } else if (this.state.cities.length === 0) {
+      return ('')
+    } else {
+      return (
+        <div className="city-cards">
+          {this.state.cities.map(city => (
+            <Fragment key={city._id}>
+              <CardColumns>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>{city.name}</Card.Title>
+                    <Card.Text>
+                      Temperature: <br/>
+                      Description:
+                    </Card.Text>
+                    <Dropdown>
+                      <Dropdown.Toggle variant="success" id="dropdown-basic">
+                        Dropdown Button
+                      </Dropdown.Toggle>
+                      <Dropdown.Menu>
+                        <Dropdown.Item href="">Favorite</Dropdown.Item>
+                        <Dropdown.Item href="">Delete</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Card.Body>
+                </Card>
+              </CardColumns>
+            </Fragment>
+          ))}
+        </div>
+      )
+    }
   }
 }
 

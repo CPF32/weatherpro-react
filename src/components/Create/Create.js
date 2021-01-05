@@ -31,6 +31,7 @@ class CreateCity extends Component {
     // Pass user and data to createUpload
     createCity(this.state.form, user)
       .then((response) => {
+        console.log(response)
         return msgAlert({
           heading: 'Successfully Added: ' + this.state.form.name,
           variant: 'success'

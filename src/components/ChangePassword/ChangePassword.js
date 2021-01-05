@@ -31,7 +31,7 @@ class ChangePassword extends Component {
         heading: 'Change Password Success',
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => history.push('/city-builder'))
       .catch(error => {
         this.setState({ oldPassword: '', newPassword: '' })
         msgAlert({
