@@ -13,10 +13,6 @@ class IndexCity extends Component {
     }
   }
 
-  // handleInputChange = event => this.setState({
-  //   [event.target.name]: event.target.value
-  // })
-
   componentDidMount () {
     const { user, msgAlert } = this.props
 

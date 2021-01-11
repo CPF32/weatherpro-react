@@ -14,6 +14,7 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Create from './components/Create/Create'
 import Index from './components/Index/Index'
+import Delete from './components/Delete/Delete'
 
 class App extends Component {
   constructor () {
@@ -78,6 +79,9 @@ class App extends Component {
               <Create msgAlert={this.msgAlert} user={user} />
               <Index msgAlert={this.msgAlert} user={user} />
             </Fragment>
+          )} />
+          <AuthenticatedRoute user={user} path='/city-builder/:id' render={() => (
+            <Delete msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
